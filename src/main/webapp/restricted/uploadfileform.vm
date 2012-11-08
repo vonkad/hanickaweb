@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html>
+<head>
+    <title>Hana Vonkova's homepage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="${request.contextPath}/vonkova.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script type="text/javascript" src="${request.contextPath}/vonkova.js"></script>
+</head>
+<body>
+    $!{request.setCharacterEncoding("UTF-8")}
+    #parse("/mainpagelink.vm")
+    <form action="${request.contextPath}/restricted/uploadfile.action" enctype="multipart/form-data" method="post">
+        <input name="user" type="hidden" value="${request.getParameter('user')}"/>
+        <input name="type" type="hidden" value="${request.getParameter('type')}"/>
+        <input name="groupId" type="hidden" value="${request.getParameter('groupId')}"/>
+        <label for="file">File</label>
+        <input id="file" name="file" type="file"/>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Hana Vonkova's homepage</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+</head>
+<body>
+#parse("/mainpagelink.vm")
+<form method="POST" action="j_security_check" style="position:absolute; top:50%; left:40%;">
+<table>
+	<tr>
+		<td><label for="uname">Login</label></td>
+		<td><input id="uname" type="text" name="j_username"/></td>
+	</tr>
+	<tr>
+		<td><label for="upass">Password</label></td>
+		<td><input id="upass" type="password" name="j_password"/></td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="submit" value="Go" /></td>
+	</tr>
+</table>
+</form>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#uname').focus();
+})
+</script>
+</body>
+</html>

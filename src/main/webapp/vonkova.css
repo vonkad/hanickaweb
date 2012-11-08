@@ -1,0 +1,87 @@
+body {
+    font: 13px arial,sans-serif;
+}
+
+#vsechno{
+    width:1024px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#jmeno {
+    color: #000000;
+    font-size: 32px;
+    font-weight: normal;
+    word-wrap: break-word;
+    padding-top:10px;
+    padding-bottom:25px;
+}
+
+#fotka img{
+    height:125px;
+    width:125px;
+}
+
+#navigace{
+    background: none repeat scroll 0 0 #F5F5F5;
+    border-color: #EBEBEB -moz-use-text-color;
+    border-left: 0 none;
+    border-right: 0 none;
+    border-style: solid none;
+    border-width: 1px 0;
+    clear: both;
+    cursor: default;
+    font: 10pt Arial,sans-serif;
+    outline: medium none;
+    padding: 5px 5px 5px 10px;
+    margin: 10px 0 20px 0;
+}
+
+#navigace a{
+    color: #666666;
+    position:relative;
+    cursor: default;
+    font-size: 15px;
+    margin: 0;
+    height:15px;
+    padding:5px 10px 5px 10px;
+}
+
+#navigace a.selected{
+    color: #DD4B39;
+    font-weight: bold;
+}
+
+a{
+    text-decoration:none;
+    text-color: blue;
+}
+
+#obsah>div{
+    display:none;
+}
+
+#obsah #news{
+    display:block;
+}
+
+table thead tr{
+    background-color:#ddd;
+}
+
+table thead tr td{
+    padding: 10px 5px;
+}
+
+table tbody tr td{
+    padding: 5px 5px;
+}
+
+#counter{
+    float:right;
+    opacity: 0.2;
+}
+
+table form{
+    margin:0;
+}

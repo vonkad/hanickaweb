@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html>
+<head>
+    <title>Hana Vonkova's homepage</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta name="google-site-verification" content="w1Xk9QvMQvrZyAzrX4rfacv68ISfercxBWI40k7Min8" />
+    <link href="${request.contextPath}/vonkova.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script type="text/javascript" src="${request.contextPath}/vonkova.js"></script>
+</head>
+<body>
+<div id="vsechno">
+    <div id="jmeno">
+        Hana Voňková
+    </div>
+    <div id="fotka">
+        <img src="${request.contextPath}/photo.jpg" alt="Photo of Hana"/>
+    </div>
+    <div id="navigace">
+        <a href="#news" class="polozka selected">News</a>
+        <a href="#about-me" class="polozka">About me</a>
+        <a href="#students" class="polozka">Students</a>
+        <span id="counter">
+        <!-- CQ Counter code start -->
+        <script type="text/javascript" language="javascript"><!--
+        _d=document; _n=navigator; _t=new Date(); function t() { _d.write(
+                "<img src=\"http://cz.2.cqcounter.com/cgi-bin/c?_id=vonkova&_z=0&_r="+
+                        _r+"&_c="+_c+"&_j="+_j+"&_t="+(_t.getTimezoneOffset())+"&_k="+_k+
+                        "&_l="+escape(_d.referrer)+"\" width=70 height=15 "+
+                        "border=0>");} _c="0"; _r="0"; _j="U"; _k="U"; _d.cookie="_c=y";
+        _d.cookie.length>0?_k="Y":_k="N";//--></script>
+        <script type="text/javascript" language="javascript1.2"><!--
+        _n.javaEnabled()?_j="Y":_j="N";_b=screen; _r=_b.width;
+        _n.appName!="Netscape"?_c=_b.colorDepth : _c=_b.pixelDepth;//--></script>
+        <a title="Free Hit Counter" href="http://cqcounter.com/?_id=vonkova&_lo=cz2"
+           target="_top"><script type="text/javascript" language="javascript"><!--
+        t(); //--></script></a><noscript><img width="70" height="15" border="0"
+                                              alt="Counter" src="http://cz.2.cqcounter.com/cgi-bin/c?_id=vonkova&_z=0"><br>
+        <a title="Free Web Counter" href="http://cqcounter.com/">Web Tracker</a></noscript>
+        <!-- CQ Counter code end -->
+            </span>
+
+    </div>
+    <div id="obsah">
+        <div id="news" style="display:block;">
+            there are no news yet
+        </div>
+        <div id="about-me">
+            <a href="cv_vonkova.pdf">My CV</a>
+        </div>
+        <div id="students">
+            <table>
+                <thead>
+                <tr>
+                    <td>Kurz</td>
+                    <td>Upload</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Metodologie pedagogického výzkumu I</td>
+                    <td><a href="${request.contextPath}/restricted/viewfiles.action?groupId=1">jen pro studenty</a></td>
+                </tr>
+                <tr>
+                    <td>Seminář k diplomové práci z pedagogiky</td>
+                    <td><a href="${request.contextPath}/restricted/viewfiles.action?groupId=2">jen pro studenty</a></td>
+                </tr>
+                <tr>
+                    <td>Tvorba a využití didaktických testů</td>
+                    <td><a href="${request.contextPath}/restricted/viewfiles.action?groupId=3">jen pro studenty</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

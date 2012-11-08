@@ -1,0 +1,13 @@
+<html>
+<head>
+    <title>Hana Vonkova's homepage</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+</head>
+<body>
+#parse("/mainpagelink.vm")
+<div style="position:absolute; top:50%; padding-left:40%;">
+    Failed to login: <a href="${request.contextPath}/login.vm">Try again</a>
+</div>
+
+</body>
+</html>

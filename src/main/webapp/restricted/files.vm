@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html>
+<head>
+    <title>Hana Vonkova's homepage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="$request.contextPath/vonkova.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script type="text/javascript" src="$request.contextPath/vonkova.js"></script>
+</head>
+<body>
+#parse("/mainpagelink.vm")
+#set($groupId=${request.getParameter("groupId")})
+#set($error=${request.getAttribute("errorMessage")})
+#if($error)
+    <span class="error">$error</span>
+#end
+<table cellspacing="0" cellpadding="0">
+    <thead>
+    <tr>
+        <td>Jméno studenta</td>
+        #foreach($klic in ${klice.keySet()})
+            <td>${klice.get($klic)}</td>
+        #end
+        #foreach($type in ${types.keySet()})
+            <td>${types.get($type)}</td>
+        #end
+    </tr>
+    </thead>
+    <tbody>
+        #foreach($student in $students)
+        <tr>
+            <td>${student.name}</td>
+            #foreach($klic in ${klice.keySet()})
+            <td>
+                <form action="$request.contextPath/restricted/update.action">
+                    <input name="value" value="$!{student.getData($klic)}"/><button type="submit">Ulož</button>
+                    <input type="hidden" name="userId" value="${student.id}"/>
+                    <input type="hidden" name="key" value="${klic}"/>
+                    <input type="hidden" name="groupId" value="${groupId}"/>
+                </form>
+            </td>
+            #end
+            #foreach($type in ${types.keySet()})
+                <td>
+                #if(${student.getFilename($type)})
+                    <a href="$request.contextPath/restricted/downloadfile.action?user=${student.id}&type=${type}&groupId=${groupId}">${student.getFilename($type)}</a>
+                    <a href="$request.contextPath/restricted/removefile.action?user=${student.id}&type=${type}&groupId=${groupId}">(remove)</a>
+                #else
+                    <a href="$request.contextPath/restricted/uploadfileform.vm?user=${student.id}&type=${type}&groupId=${groupId}">(upload)</a>
+                #end
+                </td>
+            #end
+        </tr>
+        #end
+    </tbody>
+</table>
+</body>
+</html>

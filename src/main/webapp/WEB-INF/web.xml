@@ -1,0 +1,115 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+
+    <display-name>Upload area</display-name>
+
+    <welcome-file-list>
+        <welcome-file>index.vm</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>viewfiles</servlet-name>
+        <servlet-class>com.vonkova.servlets.ViewFilesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>updatedata</servlet-name>
+        <servlet-class>com.vonkova.servlets.UpdateDataServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>uploadfile</servlet-name>
+        <servlet-class>com.vonkova.servlets.UploadFileServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>downloadfile</servlet-name>
+        <servlet-class>com.vonkova.servlets.DownloadFileServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>removefile</servlet-name>
+        <servlet-class>com.vonkova.servlets.RemoveFileServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>velocity</servlet-name>
+        <servlet-class>org.apache.velocity.tools.view.VelocityViewServlet</servlet-class>
+        <init-param>
+            <param-name>properties</param-name>
+            <param-value>/WEB-INF/velocity.properties</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>velocity</servlet-name>
+        <url-pattern>*.vm</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>uploadfile</servlet-name>
+        <url-pattern>/restricted/uploadfile.action</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>downloadfile</servlet-name>
+        <url-pattern>/restricted/downloadfile.action</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>removefile</servlet-name>
+        <url-pattern>/restricted/removefile.action</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>viewfiles</servlet-name>
+        <url-pattern>/restricted/viewfiles.action</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>updatedata</servlet-name>
+        <url-pattern>/restricted/update.action</url-pattern>
+    </servlet-mapping>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Wildcard means whole app requires authentication</web-resource-name>
+            <url-pattern>/restricted/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+
+        <auth-constraint>
+            <role-name>students</role-name>
+        </auth-constraint>
+
+        <user-data-constraint>
+            <!-- transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE -->
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login.vm</form-login-page>
+            <form-error-page>/login-failed.vm</form-error-page>
+        </form-login-config>
+    </login-config>
+
+    <resource-ref>
+        <description>DB Connection</description>
+        <res-ref-name>jdbc/students</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+
+</web-app>
